@@ -1,0 +1,27 @@
+<h1><%= @tenant.name %></h1>
+<h2> Personal Information </h2> 
+
+<% @apartment.each do |apt| %>
+    <% if apt.id == @tenant.apartment_id  %>
+        <li><%= apt.address %></li>
+    <% end %> 
+<% end %> 
+
+<form method="post" action="/remove_tenant/<%= @tenant.id %>">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Evict Tenant">
+</form>
+
+<form method="POST" action ='/edit-tenant/<%= @tenant.id %>'>
+    <div>
+    
+    <input type="text" name="tenant_name" value="update name">
+    <input type="submit" value="New Name">
+    <select name="apartment_address">
+    <% @apartment.each do | aptm | %>
+     <option value=" <%= aptm.id %>" > <%= aptm.address %> </option>
+    <% end %>
+    </select>
+    </div>
+    <input type="submit">
+</form>

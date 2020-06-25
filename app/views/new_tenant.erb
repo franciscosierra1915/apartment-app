@@ -1,0 +1,17 @@
+<form method="POST" action="/new-tenant" >
+    <div>
+        <label>Tenant Name</label>
+        <input name="tenant_name" type="text" />
+    </div>
+    <div>
+        <label>Apartment ID</label>
+        <select name="apartment_address">
+            <% @all_apartments.each do | aptm | %>
+                <option value=" <%= aptm.id %>" > <%= aptm.address %> </option>
+            <% end %>
+        </select>
+    </div>
+
+    <input type="submit">
+</form>
+

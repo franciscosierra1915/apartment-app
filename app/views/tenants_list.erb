@@ -1,0 +1,10 @@
+<h1>List of Tenants</h1>
+<ul>
+<% @tenant.each do |tnnt| %>
+    <li> 
+    <a href="/get-tenant/<%= tnnt.id %>" >
+    <%= tnnt.name %>
+    </a>
+    </li>
+    <% end %>
+</ul>
